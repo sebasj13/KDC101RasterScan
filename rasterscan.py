@@ -1,5 +1,3 @@
-from re import A
-
 import numpy as np
 from pylablib.devices import Thorlabs
 from tqdm import tqdm
