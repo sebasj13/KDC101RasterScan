@@ -5,18 +5,10 @@ from tqdm import tqdm
 AXIAL_MOTOR_ID = "27003287"
 TRANSVERSAL_MOTOR_ID = "27001138"
 
-try:
-    axial_stage = Thorlabs.KinesisMotor(AXIAL_MOTOR_ID, scale="stage")
-except Exception:
-    print("Axial stage not found")
 
-try:
-    transversal_stage = Thorlabs.KinesisMotor(TRANSVERSAL_MOTOR_ID, scale="stage")
-except Exception:
-    print("Transversal stage not found")
-
-
-def RasterScan(cols, rows, colstep, rowstep, start=(0, 0)):
+def RasterScan(
+    axial_stage, transversal_stage, cols, rows, colstep, rowstep, start=(0, 0)
+):
 
     a, b = ramp_arrays(cols, rows)
     print(f"Moving to starting position: {start[0]}, {start[1]} ...\n")
